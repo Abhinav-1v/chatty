@@ -180,8 +180,8 @@ const LogInPage = () => {
         </div>
       </div>
       <AuthImagePattern 
-      title={'Join our community'} 
-      subtitle={"Connect with friends, share moments, and stay in touch with your loved ones."}  />
+      title={'For testing use Demo account'} 
+      subtitle={"Email: guestuser@welcome.com  && Password: demopassword1"}  />
     </div>
   );
 };

@@ -18,14 +18,17 @@ const App = () => {
     checkauthfun();
   },[checkauthfun]);
 
-  if(isCheckingAuth  && !authuser){
-    return(
-      <div className='flex items-center justify-center h-screen'>
-        <Loader className='size-10 animate-spin'/>
+  if (isCheckingAuth && !authuser) {
+    return (
+      <div className='flex flex-col items-center justify-center h-screen'>
+        <Loader className='size-10 animate-spin' />
+        <p className='mt-4 text-center text-gray-600'>
+          It might take some time to start on the first attempt due to server inactivity.
+        </p>
       </div>
-    )
+    );
   }
-  return (
+    return (
     <div data-theme={theme}>
       <Router>
       <Navbar></Navbar>
