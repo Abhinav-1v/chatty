@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { io } from 'socket.io-client';
 import Cookies, {} from 'js-cookie';
 
-const BACKENDURL='http://localhost:1200';
+const BACKENDURL='https://chatty-bqe1.onrender.com';
 
 
 export const Useauthstore=create((set,get)=>({
