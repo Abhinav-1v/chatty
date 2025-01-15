@@ -4,11 +4,14 @@ const USER = require('../models/usermodel');
 const secret=process.env.JWT_SECRET;
 
 function generatetoken(userdata, res) {
-    const token = jwt.sign({ ...userdata }, secret, { expiresIn: '1h' }); // Example: 1-hour expiry for token
+    const token = jwt.sign({ ...userdata }, secret, { expiresIn: '1h' });
     res.cookie('token', token, {
-        httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
-        secure: process.env.NODE_ENV === 'production', // Ensures the cookie is sent over HTTPS in production
-        sameSite: 'None', // Allows cross-origin cookie usage
+        httpOnly: true,
+        secure: true, // Always set to true for cross-origin
+        sameSite: 'None',
+        // domain: 'https://chatty-bqe1.onrender.com', // Adjust this
+        path: '/',
+        maxAge: 3600000 // 1 hour in milliseconds
     });
     return token;
 }
