@@ -3,9 +3,13 @@ const USER = require('../models/usermodel');
 
 const secret=process.env.JWT_SECRET;
 
-function generatetoken(userdata,res){
-    const token=jwt.sign({...userdata},secret);
-    res.cookie('token',token);
+function generatetoken(userdata, res) {
+    const token = jwt.sign({ ...userdata }, secret, { expiresIn: '1h' }); // Example: 1-hour expiry for token
+    res.cookie('token', token, {
+        httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
+        secure: process.env.NODE_ENV === 'production', // Ensures the cookie is sent over HTTPS in production
+        sameSite: 'None', // Allows cross-origin cookie usage
+    });
     return token;
 }
 async function checkauth(req,res,next){
