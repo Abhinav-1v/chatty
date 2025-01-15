@@ -17,10 +17,6 @@ export const Useauthstore=create((set,get)=>({
     socket:null,
 
     checkauthfun:async()=>{
-        if(!Cookies?.get('token')){
-            set({isCheckingAuth:false});
-            return;
-        }
         try {
             const res=await axiosinstance.get('/auth/check');
             set({authuser:res.data});
