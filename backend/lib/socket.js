@@ -14,7 +14,7 @@ function getReceiverSocketId(userId){
 
 const io=new Server(server,{
     cors:{
-        origin:['https://chatty-gammaa.vercel.app/']
+        origin:['https://chatty-gammaa.vercel.app']
     }
 });
 
