@@ -10,8 +10,7 @@ function generatetoken(userdata, res) {
         secure: true, // Always set to true for cross-origin
         sameSite: 'None',
         // domain: 'https://chatty-bqe1.onrender.com', // Adjust this
-        path: '/',
-        maxAge: 3600000 // 1 hour in milliseconds
+        path: '/'    
     });
     return token;
 }
