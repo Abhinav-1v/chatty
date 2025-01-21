@@ -10,6 +10,7 @@ import { Useauthstore } from './store/useauthstore';
 import {Loader} from 'lucide-react';
 import {Toaster} from 'react-hot-toast';
 import { Usethemestore } from './store/usthemestore';
+import SplashCursor from './components/splashcursor';
 
 const App = () => {
   const{ authuser,checkauthfun ,isCheckingAuth,onlineUsers}=Useauthstore();
@@ -21,6 +22,7 @@ const App = () => {
   if (isCheckingAuth && !authuser) {
     return (
       <div className='flex flex-col items-center justify-center h-screen'>
+        <SplashCursor/>
         <Loader className='size-10 animate-spin' />
         <p className='mt-4 text-center text-gray-600'>
           It might take some time to start on the first attempt due to server inactivity.
